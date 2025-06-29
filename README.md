@@ -20,7 +20,7 @@ rm -rf /tmp/appstore_merge
 git clone --depth=1 https://ghfast.top/https://github.com/OrzMiku/opapps /tmp/appstore_merge/opapps
 
 # 复制数据
-cp -rf /tmp/appstore_merge/appstore-opapps/apps/* /opt/1panel/resource/apps/local/
+cp -rf /tmp/appstore_merge/opapps/apps/* /opt/1panel/resource/apps/local/
 
 # 清理临时目录
 rm -rf /tmp/appstore_merge
