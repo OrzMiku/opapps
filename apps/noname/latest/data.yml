@@ -3,18 +3,16 @@ additionalProperties:
     - default: 8080
       edit: true
       envKey: NONAME_ONLINE_LOBBY_PORT
+      labelEn: Noname Online Lobby Port
+      labelZh: 无名杀联机大厅端口
       required: true
       rule: paramPort
       type: number
-      label: 
-        en: Noname Online Lobby Port
-        zh: 无名杀联机大厅端口
     - default: 80
       edit: true
       envKey: PANEL_APP_PORT_HTTP
+      labelEn: Noname Web Game Port
+      labelZh: 无名杀网页游戏端口
       required: true
       rule: paramPort
       type: number
-      label: 
-        en: Noname Web Game Port
-        zh: 无名杀网页游戏端口
