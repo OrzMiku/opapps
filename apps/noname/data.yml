@@ -1,0 +1,18 @@
+name: 无名杀
+tags:
+  - 休闲游戏
+title: 《无名杀》是一款支持高度DIY的，基于GPL协议开源的卡牌游戏框架。
+description: 《无名杀》是一款支持高度DIY的，基于GPL协议开源的卡牌游戏框架。
+additionalProperties:
+  key: noname
+  name: 无名杀
+  tags:
+    - Game
+  shortDescZh: 无名杀是一款支持高度DIY的，基于GPL协议开源的卡牌游戏框架。
+  shortDescEn: Noname is a highly customizable card game framework based on the GPL license.
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://github.com/libnoname/noname
+  github: https://github.com/libnoname/noname
+  document: https://github.com/libnoname/noname/wiki

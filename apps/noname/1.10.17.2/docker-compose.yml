@@ -1,0 +1,16 @@
+services:
+  noname:
+    image: hsiaoshun/noname
+    container_name: ${CONTAINER_NAME}
+    restart: always
+    networks:
+      - 1panel-network
+    ports:
+      - ${NONAME_ONLINE_LOBBY_PORT}:8080
+      - ${NONAME_WEB_GAME_PORT}:80
+    labels:
+      created_by: "Apps"
+
+networks:
+  1panel-network:
+    external: true
