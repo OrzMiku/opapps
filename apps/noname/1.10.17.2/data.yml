@@ -11,7 +11,7 @@ additionalProperties:
         zh: 无名杀联机大厅端口
     - default: 80
       edit: true
-      envKey: NONAME_WEB_GAME_PORT
+      envKey: PANEL_APP_PORT_HTTP
       required: true
       rule: paramPort
       type: number
