@@ -7,7 +7,7 @@ additionalProperties:
       labelZh: 数据库服务
       required: true
       type: service
-    - default: newapi
+    - default: gemini_balance
       envKey: PANEL_DB_NAME
       labelEn: Database
       labelZh: 数据库名
@@ -15,7 +15,7 @@ additionalProperties:
       required: true
       rule: paramCommon
       type: text
-    - default: newapi
+    - default: gemini_balance
       envKey: PANEL_DB_USER
       labelEn: User
       labelZh: 数据库用户
@@ -23,7 +23,7 @@ additionalProperties:
       required: true
       rule: paramCommon
       type: text
-    - default: newapi
+    - default: gemini_balance
       envKey: PANEL_DB_USER_PASSWORD
       labelEn: Password
       labelZh: 数据库用户密码
