@@ -1,0 +1,21 @@
+name: Gemini Balance
+tags:
+  - AI / 大模型
+title: Gemini API 代理和负载均衡器。
+description: Gemini API 代理和负载均衡器。
+additionalProperties:
+  key: gemini-balance
+  name: Gemini Balance
+  tags:
+    - AI
+  shortDescZh: Gemini API 代理和负载均衡器。
+  shortDescEn: Gemini API Proxy and Load Balancer.
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  recommend: 0
+  github: https://github.com/snailyp/gemini-balance
+  document: https://gb-docs.snaily.top/
+  architectures:
+    - amd64
+    - arm64

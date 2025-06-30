@@ -1,0 +1,29 @@
+volumes:
+  mysql_data:
+services:
+  gemini-balance:
+    image: ghcr.io/snailyp/gemini-balance:latest
+    container_name: ${CONTAINER_NAME}
+    restart: unless-stopped
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:8000
+    env_file:
+      - .env
+    environment:
+      - MYSQL_HOST=${PANEL_DB_HOST}
+      - MYSQL_PORT=${PANEL_DB_PORT}
+      - MYSQL_DATABASE=${PANEL_DB_NAME}
+      - MYSQL_USER=${PANEL_DB_USER}
+      - MYSQL_PASSWORD=${PANEL_DB_USER_PASSWORD}
+    healthcheck:
+      test: ["CMD-SHELL", "python -c \"import requests; exit(0) if requests.get('http://localhost:8000/health').status_code == 200 else exit(1)\""]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    networks:
+      - 1panel-network
+
+networks:
+  1panel-network:
+    external: true
