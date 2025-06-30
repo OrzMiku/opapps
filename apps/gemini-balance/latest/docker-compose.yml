@@ -13,6 +13,10 @@ services:
       - MYSQL_DATABASE=${PANEL_DB_NAME}
       - MYSQL_USER=${PANEL_DB_USER}
       - MYSQL_PASSWORD=${PANEL_DB_USER_PASSWORD}
+      - API_KEYS=${API_KEYS}
+      - ALLOWED_TOKENS=${ALLOWED_TOKENS}
+    volumes:
+      - ./app:/app
     healthcheck:
       test: ["CMD-SHELL", "python -c \"import requests; exit(0) if requests.get('http://localhost:8000/health').status_code == 200 else exit(1)\""]
       interval: 30s
