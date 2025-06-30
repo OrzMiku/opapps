@@ -38,3 +38,21 @@ additionalProperties:
       required: true
       rule: paramPort
       type: number
+    - default: ["gemini_key1","gemini_key2"]
+      envKey: GEMINI_API_KEYS
+      labelEn: Gemini API Keys List, for load balancing
+      labelZh: Gemini API 密钥列表，用于负载均衡
+      required: true
+      type: text
+    - default: ["super_admin_key","allowed_key"]
+      envKey: ALLOWED_API_KEYS
+      labelEn: Allowed Token List
+      labelZh: 允许的 Token 列表
+      required: true
+      type: text
+    - default: https://generativelanguage.googleapis.com/v1beta
+      envKey: GEMINI_BASE_URL
+      labelEn: Gemini API URL
+      labelZh: Gemini API 地址
+      required: true
+      type: text
