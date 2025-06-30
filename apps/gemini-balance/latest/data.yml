@@ -38,13 +38,13 @@ additionalProperties:
       required: true
       rule: paramPort
       type: number
-    - default: ["gemini_key1","gemini_key2"]
+    - default: '["gemini_key1","gemini_key2"]'
       envKey: API_KEYS
       labelEn: Gemini API Keys List, for load balancing
       labelZh: Gemini API 密钥列表，用于负载均衡
       required: true
       type: text
-    - default: ["super_admin_key","allowed_key"]
+    - default: '["allowed_token1","allowed_token2"]'
       envKey: ALLOWED_TOKENS
       labelEn: Allowed Token List
       labelZh: 允许的 Token 列表
