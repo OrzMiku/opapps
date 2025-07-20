@@ -1,0 +1,28 @@
+volumes:
+  mysql_data:
+services:
+  gemini-balance:
+    image: ghcr.io/snailyp/gemini-balance:latest
+    container_name: ${CONTAINER_NAME}
+    restart: unless-stopped
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:8000
+    environment:
+      - DATABASE_TYPE=sqlite
+      - SQLITE_DATABASE=default_db
+      - API_KEYS=${API_KEYS}
+      - ALLOWED_TOKENS=${ALLOWED_TOKENS}
+    healthcheck:
+      test: ["CMD-SHELL", "python -c \"import requests; exit(0) if requests.get('http://localhost:8000/health').status_code == 200 else exit(1)\""]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    networks:
+      - 1panel-network
+    volumes:
+      - ./data:/app/data
+
+networks:
+  1panel-network:
+    external: true

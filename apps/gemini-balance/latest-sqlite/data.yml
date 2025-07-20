@@ -1,0 +1,22 @@
+additionalProperties:
+  formFields:
+    - default: 8000
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelEn: Port
+      labelZh: 端口
+      required: true
+      rule: paramPort
+      type: number
+    - default: '["gemini_key1","gemini_key2"]'
+      envKey: API_KEYS
+      labelEn: Gemini API Keys List, for load balancing
+      labelZh: Gemini API 密钥列表，用于负载均衡
+      required: true
+      type: text
+    - default: '["allowed_token1","allowed_token2"]'
+      envKey: ALLOWED_TOKENS
+      labelEn: Allowed Token List
+      labelZh: 允许的 Token 列表
+      required: true
+      type: text
