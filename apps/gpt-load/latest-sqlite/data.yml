@@ -1,0 +1,17 @@
+additionalProperties:
+  formFields:
+    - default: 3001
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelEn: Port
+      labelZh: 端口
+      required: true
+      rule: paramPort
+      type: number
+    - default: "admin_123456"
+      edit: true
+      envKey: AUTH_KEY
+      labelEn: Auth Key
+      labelZh: 认证密钥
+      required: true
+      type: password
