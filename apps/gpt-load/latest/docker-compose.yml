@@ -1,0 +1,44 @@
+services:
+  gpt-load:
+    image: ghcr.io/tbphp/gpt-load:latest
+    container_name: ${CONTAINER_NAME}
+    ports:
+      - "${PORT}:${PORT}"
+    environment:
+      - AUTH_KEY=${AUTH_KEY}
+      - PORT=${PORT}
+      - HOST=${HOST}
+      - SERVER_READ_TIMEOUT=${SERVER_READ_TIMEOUT}
+      - SERVER_WRITE_TIMEOUT=${SERVER_WRITE_TIMEOUT}
+      - SERVER_IDLE_TIMEOUT=${SERVER_IDLE_TIMEOUT}
+      - SERVER_GRACEFUL_SHUTDOWN_TIMEOUT=${SERVER_GRACEFUL_SHUTDOWN_TIMEOUT}
+      - IS_SLAVE=${IS_SLAVE}
+      - TZ=${TZ}
+      - DATABASE_DSN=${DATABASE_DSN}
+      - REDIS_DSN=${REDIS_DSN}
+      - MAX_CONCURRENT_REQUESTS=${MAX_CONCURRENT_REQUESTS}
+      - ENABLE_CORS=${ENABLE_CORS}
+      - ALLOWED_ORIGINS=${ALLOWED_ORIGINS}
+      - ALLOWED_METHODS=${ALLOWED_METHODS}
+      - ALLOWED_HEADERS=${ALLOWED_HEADERS}
+      - ALLOW_CREDENTIALS=${ALLOW_CREDENTIALS}
+      - LOG_LEVEL=${LOG_LEVEL}
+      - LOG_FORMAT=${LOG_FORMAT}
+      - LOG_ENABLE_FILE=${LOG_ENABLE_FILE}
+      - LOG_FILE_PATH=${LOG_FILE_PATH}
+    restart: always
+    volumes:
+      - ./data:/app/data
+    stop_grace_period: ${SERVER_GRACEFUL_SHUTDOWN_TIMEOUT}s
+    healthcheck:
+      test: wget -q --spider -T 10 -O /dev/null http://localhost:${PORT}/health
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - 1panel-network
+
+networks:
+  1panel-network:
+    external: true

@@ -1,0 +1,224 @@
+additionalProperties:
+  formFields:
+    - type: text
+      key: AUTH_KEY
+      envKey: AUTH_KEY
+      label:
+        en: Admin Key
+        zh: 管理密钥
+      default: sk-123456
+      required: true
+      random: true
+      rule: paramCommon
+    - type: number
+      key: PORT
+      envKey: PORT
+      label:
+        en: Port
+        zh: 端口
+      default: 3001
+      required: true
+      rule: paramPort
+    - type: text
+      key: HOST
+      envKey: HOST
+      label:
+        en: Host
+        zh: 主机
+      default: 0.0.0.0
+      required: true
+    - type: text
+      key: DATABASE_DSN
+      envKey: DATABASE_DSN
+      label:
+        en: Database DSN
+        zh: 数据库 DSN
+      default: ./data/gpt-load.db
+      required: true
+    - type: text
+      key: REDIS_DSN
+      envKey: REDIS_DSN
+      label:
+        en: Redis DSN
+        zh: Redis DSN
+      default: ""
+    - type: text
+      key: TZ
+      envKey: TZ
+      label:
+        en: Timezone
+        zh: 时区
+      default: Asia/Shanghai
+      required: true
+    - type: number
+      key: SERVER_READ_TIMEOUT
+      envKey: SERVER_READ_TIMEOUT
+      label:
+        en: Read Timeout
+        zh: 读取超时
+      default: 60
+      required: true
+    - type: number
+      key: SERVER_WRITE_TIMEOUT
+      envKey: SERVER_WRITE_TIMEOUT
+      label:
+        en: Write Timeout
+        zh: 写入超时
+      default: 600
+      required: true
+    - type: number
+      key: SERVER_IDLE_TIMEOUT
+      envKey: SERVER_IDLE_TIMEOUT
+      label:
+        en: Idle Timeout
+        zh: 空闲超时
+      default: 120
+      required: true
+    - type: number
+      key: SERVER_GRACEFUL_SHUTDOWN_TIMEOUT
+      envKey: SERVER_GRACEFUL_SHUTDOWN_TIMEOUT
+      label:
+        en: Graceful Shutdown Timeout
+        zh: 优雅关闭超时
+      default: 10
+      required: true
+    - type: select
+      key: IS_SLAVE
+      envKey: IS_SLAVE
+      label:
+        en: Slave Mode
+        zh: 从节点模式
+      default: "false"
+      values:
+        - label:
+            en: "False"
+            zh: "否"
+          value: "false"
+        - label:
+            en: "True"
+            zh: "是"
+          value: "true"
+    - type: number
+      key: MAX_CONCURRENT_REQUESTS
+      envKey: MAX_CONCURRENT_REQUESTS
+      label:
+        en: Max Concurrent Requests
+        zh: 最大并发请求
+      default: 100
+      required: true
+    - type: select
+      key: ENABLE_CORS
+      envKey: ENABLE_CORS
+      label:
+        en: Enable CORS
+        zh: 启用 CORS
+      default: "true"
+      values:
+        - label:
+            en: "True"
+            zh: "是"
+          value: "true"
+        - label:
+            en: "False"
+            zh: "否"
+          value: "false"
+    - type: text
+      key: ALLOWED_ORIGINS
+      envKey: ALLOWED_ORIGINS
+      label:
+        en: Allowed Origins
+        zh: 允许的来源
+      default: "*"
+    - type: text
+      key: ALLOWED_METHODS
+      envKey: ALLOWED_METHODS
+      label:
+        en: Allowed Methods
+        zh: 允许的方法
+      default: GET,POST,PUT,DELETE,OPTIONS
+    - type: text
+      key: ALLOWED_HEADERS
+      envKey: ALLOWED_HEADERS
+      label:
+        en: Allowed Headers
+        zh: 允许的头部
+      default: "*"
+    - type: select
+      key: ALLOW_CREDENTIALS
+      envKey: ALLOW_CREDENTIALS
+      label:
+        en: Allow Credentials
+        zh: 允许凭据
+      default: "false"
+      values:
+        - label:
+            en: "False"
+            zh: "否"
+          value: "false"
+        - label:
+            en: "True"
+            zh: "是"
+          value: "true"
+    - type: select
+      key: LOG_LEVEL
+      envKey: LOG_LEVEL
+      label:
+        en: Log Level
+        zh: 日志级别
+      default: info
+      values:
+        - label:
+            en: "Debug"
+            zh: "调试"
+          value: "debug"
+        - label:
+            en: "Info"
+            zh: "信息"
+          value: "info"
+        - label:
+            en: "Warn"
+            zh: "警告"
+          value: "warn"
+        - label:
+            en: "Error"
+            zh: "错误"
+          value: "error"
+    - type: select
+      key: LOG_FORMAT
+      envKey: LOG_FORMAT
+      label:
+        en: Log Format
+        zh: 日志格式
+      default: text
+      values:
+        - label:
+            en: "Text"
+            zh: "文本"
+          value: "text"
+        - label:
+            en: "Json"
+            zh: "Json"
+          value: "json"
+    - type: select
+      key: LOG_ENABLE_FILE
+      envKey: LOG_ENABLE_FILE
+      label:
+        en: Enable File Log
+        zh: 启用文件日志
+      default: "true"
+      values:
+        - label:
+            en: "True"
+            zh: "是"
+          value: "true"
+        - label:
+            en: "False"
+            zh: "否"
+          value: "false"
+    - type: text
+      key: LOG_FILE_PATH
+      envKey: LOG_FILE_PATH
+      label:
+        en: Log File Path
+        zh: 日志文件路径
+      default: ./data/logs/app.log
