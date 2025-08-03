@@ -15,3 +15,10 @@ additionalProperties:
       labelZh: 认证密钥
       required: true
       type: password
+    - default: "10"
+      edit: true
+      envKey: SERVER_GRACEFUL_SHUTDOWN_TIMEOUT
+      labelEn: Graceful Shutdown Timeout
+      labelZh: 优雅关闭超时
+      required: false
+      type: number

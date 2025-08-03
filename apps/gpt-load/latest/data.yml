@@ -1,0 +1,67 @@
+additionalProperties:
+  formFields:
+    - default: 3001
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelEn: Port
+      labelZh: 端口
+      required: true
+      rule: paramPort
+      type: number
+    - default: ""
+      envKey: PANEL_DB_HOST
+      key: mysql
+      labelEn: Database Service
+      labelZh: 数据库服务
+      required: true
+      type: service
+    - default: gpt-load
+      envKey: PANEL_DB_NAME
+      labelEn: Database
+      labelZh: 数据库名
+      random: true
+      required: true
+      rule: paramCommon
+      type: text
+    - default: gpt-load
+      envKey: PANEL_DB_USER
+      labelEn: User
+      labelZh: 数据库用户
+      random: true
+      required: true
+      rule: paramCommon
+      type: text
+    - default: gpt-load
+      envKey: PANEL_DB_USER_PASSWORD
+      labelEn: Password
+      labelZh: 数据库用户密码
+      random: true
+      required: true
+      type: password
+    - default: ""
+      envKey: PANEL_REDIS_HOST
+      key: redis
+      labelEn: Redis Service
+      labelZh: redis 服务
+      required: true
+      type: service
+    - default: ""
+      envKey: PANEL_REDIS_ROOT_PASSWORD
+      labelEn: Redis Service Password
+      labelZh: 缓存服务服务密码
+      required: false
+      type: password
+    - default: "admin_123456"
+      edit: true
+      envKey: AUTH_KEY
+      labelEn: Auth Key
+      labelZh: 认证密钥
+      required: true
+      type: password
+    - default: "10"
+      edit: true
+      envKey: SERVER_GRACEFUL_SHUTDOWN_TIMEOUT
+      labelEn: Graceful Shutdown Timeout
+      labelZh: 优雅关闭超时
+      required: false
+      type: number
