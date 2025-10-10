@@ -8,12 +8,19 @@ additionalProperties:
       required: true
       rule: paramPort
       type: number
-    - default: "admin_123456"
+    - default: ""
       edit: true
       envKey: AUTH_KEY
       labelEn: Auth Key
       labelZh: 认证密钥
       required: true
+      type: password
+    - default: ""
+      edit: true
+      envKey: ENCRYPTION_KEY
+      labelEn: Encryption Key (empty means sensitive data will be stored in plain text)
+      labelZh: 加密密钥（为空时敏感数据将以明文存储）
+      required: false
       type: password
     - default: "10"
       edit: true

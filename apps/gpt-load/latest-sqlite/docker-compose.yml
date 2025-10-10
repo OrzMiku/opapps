@@ -6,6 +6,7 @@ services:
       - ${PANEL_APP_PORT_HTTP}:3001
     environment:
       - AUTH_KEY=${AUTH_KEY}
+      - ENCRYPTION_KEY=${ENCRYPTION_KEY}
     restart: always
     volumes:
       - ./data:/app/data
