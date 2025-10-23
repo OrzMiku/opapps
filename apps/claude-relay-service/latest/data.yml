@@ -1,0 +1,82 @@
+additionalProperties:
+  formFields:
+    - default: 3000
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelEn: Port
+      labelZh: 端口
+      required: true
+      rule: paramPort
+      type: number
+    - default: ""
+      envKey: PANEL_REDIS_HOST
+      key: redis
+      labelEn: Redis Service
+      labelZh: Redis 服务
+      required: true
+      type: service
+    - default: ""
+      envKey: PANEL_REDIS_ROOT_PASSWORD
+      labelEn: Redis Service Password
+      labelZh: Redis 服务密码
+      required: false
+      type: password
+    - default: ""
+      edit: true
+      envKey: JWT_SECRET
+      labelEn: JWT Secret (at least 32 characters)
+      labelZh: JWT 密钥（至少32个字符）
+      required: true
+      type: password
+    - default: ""
+      edit: true
+      envKey: ENCRYPTION_KEY
+      labelEn: Encryption Key (exactly 32 characters)
+      labelZh: 加密密钥（必须32个字符）
+      required: true
+      type: password
+    - default: ""
+      edit: true
+      envKey: ADMIN_USERNAME
+      labelEn: Admin Username (optional, auto-generated if empty)
+      labelZh: 管理员用户名（可选，为空时自动生成）
+      required: false
+      rule: paramCommon
+      type: text
+    - default: ""
+      edit: true
+      envKey: ADMIN_PASSWORD
+      labelEn: Admin Password (optional, auto-generated if empty)
+      labelZh: 管理员密码（可选，为空时自动生成）
+      required: false
+      type: password
+    - default: "86400000"
+      edit: true
+      envKey: ADMIN_SESSION_TIMEOUT
+      labelEn: Admin Session Timeout (ms)
+      labelZh: 管理员会话超时（毫秒）
+      required: false
+      type: number
+    - default: "cr_"
+      edit: true
+      envKey: API_KEY_PREFIX
+      labelEn: API Key Prefix
+      labelZh: API 密钥前缀
+      required: false
+      rule: paramCommon
+      type: text
+    - default: "1000000"
+      edit: true
+      envKey: DEFAULT_TOKEN_LIMIT
+      labelEn: Default Token Limit
+      labelZh: 默认令牌限制
+      required: false
+      type: number
+    - default: "info"
+      edit: true
+      envKey: LOG_LEVEL
+      labelEn: Log Level
+      labelZh: 日志级别
+      required: false
+      rule: paramCommon
+      type: text

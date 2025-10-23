@@ -1,0 +1,55 @@
+services:
+  claude-relay:
+    image: weishaw/claude-relay-service:latest
+    container_name: ${CONTAINER_NAME}
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:3000
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - HOST=0.0.0.0
+      - JWT_SECRET=${JWT_SECRET}
+      - ENCRYPTION_KEY=${ENCRYPTION_KEY}
+      - ADMIN_SESSION_TIMEOUT=${ADMIN_SESSION_TIMEOUT}
+      - API_KEY_PREFIX=${API_KEY_PREFIX}
+      - ADMIN_USERNAME=${ADMIN_USERNAME}
+      - ADMIN_PASSWORD=${ADMIN_PASSWORD}
+      - REDIS_HOST=${PANEL_REDIS_HOST}
+      - REDIS_PORT=6379
+      - REDIS_PASSWORD=${PANEL_REDIS_ROOT_PASSWORD}
+      - REDIS_DB=0
+      - CLAUDE_API_URL=https://api.anthropic.com/v1/messages
+      - CLAUDE_API_VERSION=2023-06-01
+      - CLAUDE_BETA_HEADER=claude-code-20250219,oauth-2025-04-20,interleaved-thinking-2025-05-14,fine-grained-tool-streaming-2025-05-14
+      - DEFAULT_PROXY_TIMEOUT=60000
+      - MAX_PROXY_RETRIES=3
+      - DEFAULT_TOKEN_LIMIT=${DEFAULT_TOKEN_LIMIT}
+      - LOG_LEVEL=${LOG_LEVEL}
+      - LOG_MAX_SIZE=10m
+      - LOG_MAX_FILES=5
+      - CLEANUP_INTERVAL=3600000
+      - TOKEN_USAGE_RETENTION=2592000000
+      - HEALTH_CHECK_INTERVAL=60000
+      - TIMEZONE_OFFSET=8
+      - WEB_TITLE=Claude Relay Service
+      - WEB_DESCRIPTION=Multi-account Claude API relay service
+      - WEB_LOGO_URL=/assets/logo.png
+      - DEBUG=false
+      - ENABLE_CORS=true
+      - TRUST_PROXY=true
+    restart: always
+    volumes:
+      - ./logs:/app/logs
+      - ./data:/app/data
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - 1panel-network
+
+networks:
+  1panel-network:
+    external: true

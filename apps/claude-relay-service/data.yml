@@ -1,0 +1,18 @@
+name: Claude Relay Service
+tags:
+  - AI / 大模型
+title: 自行搭建Claude API中转服务，支持多账户管理
+description: 🔐 自行搭建Claude API中转服务，支持多账户管理。提供Claude Code、Gemini CLI、Codex等多种客户端支持，具备智能账户轮换、使用统计、Web管理界面等功能。
+additionalProperties:
+  key: claude-relay-service
+  name: Claude Relay Service
+  tags:
+    - AI
+  shortDescZh: Claude API中转服务
+  shortDescEn: Claude API relay service
+  type: website
+  github: https://github.com/Wei-Shaw/claude-relay-service
+  document: https://github.com/Wei-Shaw/claude-relay-service#readme
+  architectures:
+    - amd64
+    - arm64
